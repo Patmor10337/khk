@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Śliwki</title>
+     <script>
+        var asuszdj = ["asus1.jpg", "asus2.jpg", "asus3.jpg"]
+        var asusnumer = 0
+        function nastAsus() {
+            asusnumer++
+            document.getElementById("asus1").src = asuszdj[asusnumer]
+            if (asusnumer > 2){
+                asusnumer = 2
+                document.getElementById("asus1").src = asuszdj[asusnumer]
+                }
+            }
+        function poprzAsus() {
+            if (asusnumer > 0) {
+                asusnumer--
+                document.getElementById("asus1").src = asuszdj[asusnumer]
+            }
+            }
+        var msizdj = ["msi1.jpg", "msi2.jpg", "msi3.jpg"]
+        var msinumer = 0
+        function nastMsi() {
+            msinumer++
+            document.getElementById("msi1").src = msizdj[msinumer]
+            if (msinumer > 2){
+                msinumer = 2
+                document.getElementById("msi1").src = msizdj[msinumer]
+            }}
+        function poprzMsi() {
+        if (msinumer > 0) {
+            msinumer--
+            document.getElementById("msi1").src = msizdj[msinumer]
+        }}
+
+
+        var gigazdj = ["giga1.jpg", "giga2.jpg", "giga3.jpg"]
+        var giganumer = 0
+        function nastGiga() {
+            giganumer++
+            document.getElementById("giga1").src = gigazdj[giganumer]
+            if (giganumer >2){
+                giganumer = 2
+                document.getElementById("giga1").src = gigazdj[giganumer]
+            }}
+        function poprzGiga() {
+            if (giganumer > 0){
+            giganumer--
+            document.getElementById("giga1").src = gigazdj[giganumer]
+            }}
+
+
+        var aszdj = ["as1.jpg", "as2.jpg", "as3.jpg"]
+        var asnumer = 0
+        function nastAs() {
+            asnumer++
+            document.getElementById("as1").src = aszdj[asnumer]
+            if (asnumer > 2){
+                asnumer = 2
+                document.getElementById("as1").src = aszdj[asnumer]
+            }}
+        function poprzAs() {
+            if (asnumer > 0){
+                asnumer--
+                document.getElementById("as1").src = aszdj[asnumer]
+            }}
+
+
+        var tufzdj = ["tuf1.jpg", "tuf2.jpg", "tuf3.jpg"]
+        var tufnumer = 0
+        function nastTuf() {
+            tufnumer++
+            document.getElementById("tuf1").src = tufzdj[tufnumer]
+            if (tufnumer>2){
+            tufnumer = 2
+            document.getElementById("tuf1").src = tufzdj[tufnumer]
+            }}
+        function poprzTuf() {
+            if (tufnumer > 0){
+            tufnumer--
+                document.getElementById("tuf1").src = tufzdj[tufnumer]
+        }}
+
+        function kontakt(){
+            alert("Numer tel: 795 079 995  Mango 67" )
+        }
+
+        function odsylacz(){
+            var a=""
+            var b=""
+            var c=""
+            var d=""
+            var e=""
+            if(document.getElementById("asus").checked==true){
+                a ="Asus ROG STRIX B550-A GAMING; "
+            }
+            if(document.getElementById("msi").checked==true){
+                b ="MSI B650 GAMING PLUS WIFI; "
+            }
+            if(document.getElementById("giga").checked==true){
+                c ="Gigabyte B650 EAGLE AX; "
+            }
+            if(document.getElementById("as").checked==true){
+                d ="ASRock B850M-X WiFi R2.0; "
+            }
+            if(document.getElementById("tuf").checked==true){
+                e ="Asus TUF GAMING B650E-E WIFI; "
+            }
+            document.getElementById("wybrane").innerHTML=a+b+c+d+e
+        }
+        function oblicz(){
+            var aa = 0
+            var bb = 0
+            var cc = 0
+            var dd = 0
+            var ee = 0
+            if(document.getElementById("asus").checked==true){
+                aa =parseFloat(522.00)
+            }
+            if(document.getElementById("msi").checked==true){
+                bb =parseFloat(614.00)
+            }
+            if(document.getElementById("giga").checked==true){
+                cc =parseFloat(579.00)
+            }
+            if(document.getElementById("as").checked==true){
+                dd =parseFloat(509.00)
+            }
+            if(document.getElementById("tuf").checked==true){
+                ee = parseFloat(729.00)
+            }
+            var rabat = document.getElementById("rabat").value
+            var znizka = 1
+            var infoznizka = " "
+            if(rabat == "html"){
+                znizka = 0.80
+                infoznizka = "Otrzymałeś przecenę 20%."
+            }
+            if(rabat == "ford focus"){
+                znizka = 0.01
+                infoznizka = "JACKPOT!!! OTRZYMAŁEŚ PRZECENĘ 99% !! MEGA BIG WIN!"
+            }
+
+            var final = (aa+bb+cc+dd+ee)*znizka
+
+            var akt = 0
+            if(document.getElementById("bios").checked==true){
+                akt=150
+            }
+            var rok = document.getElementById("gwarancja").value
+            cena_gwarancja = 80*rok
+
+            if(final==0){
+                akt=0
+                cena_gwarancja=0
+            }
+            var inforaty = " "
+            var ilosc_rat = document.getElementById("raty").value
+            if (ilosc_rat<1){
+                ilosc_rat = 1
+            }
+            if(ilosc_rat>1){
+                inforaty="w "+ilosc_rat+" ratach."
+            }
+            document.getElementById("wynik").innerHTML=Math.round(((final+akt+cena_gwarancja)/ilosc_rat)*100)/100+"zł "+inforaty+"<p>"+infoznizka+"</p>"
+        }
+
+        function kupiles(){
+            var i = 0
+            if(document.getElementById("asus").checked==true){
+            i++
+            }
+            if(document.getElementById("msi").checked==true){
+            i++
+            }
+            if(document.getElementById("giga").checked==true){
+            i++
+            }
+            if(document.getElementById("as").checked==true){
+            i++
+            }
+            if(document.getElementById("tuf").checked==true){
+            i++
+            }
+            if(i>1 && (document.getElementById("bios").checked==true || document.getElementById("gwarancja").value>0)){
+                prompt("Wiadomość dla sprzedającego: Która płyta ma być obięta gwarancją/mieć aktualizowany BIOS?")
+            }
+            if(i>0){
+            alert("Dziękujemy za zakupy!")
+            }
+            else{
+                alert("Wybierz coś, nie gryzę.")
+            }
+        }
+        function sortuj(){
+            var pobierz_am4 = document.getElementsByClassName("AM4")
+            var pobierz_am5 = document.getElementsByClassName("AM5")
+            var pobierz_ddr4 = document.getElementsByClassName("DDR4")
+            var pobierz_ddr5 = document.getElementsByClassName("DDR5")
+            if(document.getElementById("sort").value=="am4id"){
+                for (var l = 0; l < pobierz_am4.length; l++) {
+                 pobierz_am4[l].style.display = "flex"
+                    }
+                    for (var l = 0; l < pobierz_am5.length; l++) {
+                 pobierz_am5[l].style.display = "none"
+                    }
+            }
+            if(document.getElementById("sort").value=="am5id"){
+                for (var l = 0; l < pobierz_am5.length; l++) {
+                 pobierz_am5[l].style.display = "flex"
+                    }
+                    for (var l = 0; l < pobierz_am4.length; l++) {
+                 pobierz_am4[l].style.display = "none"
+                    }
+            }
+            if(document.getElementById("sort").value=="ddr4id"){
+                for (var l = 0; l < pobierz_ddr4.length; l++) {
+                 pobierz_ddr4[l].style.display = "flex"
+                    }
+                    for (var l = 0; l < pobierz_ddr5.length; l++) {
+                 pobierz_ddr5[l].style.display = "none"
+                    }
+            }
+            if(document.getElementById("sort").value=="ddr5id"){
+                for (var l = 0; l < pobierz_ddr4.length; l++) {
+                 pobierz_ddr4[l].style.display = "none"
+                    }
+                    for (var l = 0; l < pobierz_ddr5.length; l++) {
+                 pobierz_ddr5[l].style.display = "flex"
+                    }
+            }
+            if(document.getElementById("sort").value=="default"){
+                for (var l = 0; l < pobierz_am4.length; l++) {
+                 pobierz_am4[l].style.display = "flex"
+                    }
+                    for (var l = 0; l < pobierz_am5.length; l++) {
+                 pobierz_am5[l].style.display = "flex"
+                    }
+            }
+        }
+     </script>
+     <style>
+        body{
+            background-color: #c8c8c8;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            background-color: rgb(156, 85, 221);
+            border: 10px;
+            height: 220px;
+            border-radius: 40px;
+        }
+        header img{
+            width: 250px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        header h1{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 130px;
+            width: 1770px;
+        }
+        header form {
+            height: 220px;
+        }
+        nav{
+            text-align: center;
+            background-color: #aeadae;
+            margin-left: 30px;
+            margin-right: 30px;
+            height: 30px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #1d1c1c;
+        }
+
+
+        #opis {       
+            padding: 20px;          
+            background-color: #dadde6;    
+            border: 1px solid #242222;       
+            border-radius: 2px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+        }
+
+        #opis h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            border-bottom: 2px solid #2c3e50;
+        }
+        #opis p {
+            margin-bottom: 15px;
+        }       
+        #opis a {
+            color: #2980b9;
+        }
+
+        #opis s {
+            color: #7f8c8d;
+        }
+
+        #produkt {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        #produkt h2 {
+            text-align: center;
+            margin-bottom: 20px;
+                    color: #333333;
+        }
+        #produkt div {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid #3d3d3d;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fce7e7;
+        }
+        #produkt div input[type="button"] {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 1px solid #5a5858;
+            border-radius: 5px;
+            background-color: #ddd5e8;
+        }
+        #produkt div img {
+            width: 250px;
+            height: 200px;
+            object-fit: cover;
+            flex: 0 0 auto;
+            border-radius: 8px;
+            border: 1px solid #d7d7d7;
+        }
+        #produkt div span {
+            display: block;
+        }
+        #produkt div span.sp1 {
+            font-weight: bold;
+            font-size: 16px;
+            color: #1d1c1c;
+        }
+        #produkt div span.sp2 {
+            font-size: 14px;
+            color: #585656;
+            max-width: 350px;
+        }
+        #produkt div span.sp3 {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        #produkt div input[type="checkbox"] {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        #kasa {
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #e6e6e7;
+            border-radius: 12px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            border: 2px solid #000000;
+        }
+
+        #kasa h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #kasa div{
+            border: 1px solid #000000;
+        }
+
+        #kasa p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #444;
+        }
+
+        #kasa input[type="text"],
+        #kasa input[type="number"],
+        #kasa select {
+            padding: 6px 10px;
+            margin-left: 10px;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        #kasa input[type="checkbox"] {
+            margin-left: 10px;
+            border: 1px solid #000000;
+        }
+
+        #kasa input[type="button"] {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        #wybrane {
+            min-height: 30px;
+            padding: 10px;
+            background-color: #eef;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        #wynik {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #dff0d8;
+            color: #3c763d;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+        footer{
+            text-align: center;
+            background-color: #000000;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            height: 120px;
+            border-radius: 20px;
+            font-size: 20px;
+        }
+        footer p{
+            line-height: 2;
+        }
+</style>
+</head>
+<body>
+    <header id="start">
+    <img src="sliwki.jpg"><h1>Śliwki</h1>
+        <form name="napis">
+        <input id="tekst" name="text" size="23" value="Najlepszy sklep internetowy! ">
+        </form>
+    </header>
+    <nav>
+    <a href="#start">Start</a> &nbsp; 
+    <a href="#opis">Opis</a> &nbsp; 
+    <a href="#produkt">Produkty</a> &nbsp; 
+    <a href="#kasa">Kasa</a> &nbsp; 
+    <a href="#start" onclick="kontakt()">Kontakt</a>
+    </nav>
+    <article id="opis">
+        <h2>Opis</h2>
+        <p>Witaj na stronie <a href="#start">Śliwki.pl</a> ,
+            <span title="dane nieoficjalne">prawie <strong>głównego konkurenta</strong> </span>
+            <a href="https://www.morele.net" target="_blank">Morele.net</a>.</p> 
+            <p>Możesz tu zakupić różnego rodzaju podzespoły takie jak płyty główne i<span id="kropka"></span></p>
+            <p>Na razie tylko płyty główne, ale to ulegnie modernizacji. Podzespoły sporowadzane są z fabryki płytek pcv i obwodów elektrycznych w Jaworkach.</p>
+            <p><s>Morele.net</s> <strong>Śliwki.pl</strong> to polski sklep internetowy specjalizujący się w dystrybucji elektroniki użytkowej, który działa od 2025 roku. </p>
+            <p>Sklep kładzie nacisk na przyjazną obsługę, niskie ceny i innowacyjne rozwiązania. Ceny okazyjne, stan "igła". Życzymy miłych zakupów!</p>
+    </article>
+    <section id="produkt">
+        <h2>Produkty:</h2><br>
+        Sortuj <select id="sort" onchange="sortuj()">
+            <option value="default">Najbardziej trafne</option>
+            <option value="am4id">Gniazdo AM4</option>
+            <option value="am5id">Gniazdo AM5</option>
+            <option value="ddr4id">Pamięć DDR4</option>
+            <option value="ddr5id">Pamięć DDR5</option>
+        </select>
+        <div class="DDR4 AM4">
+         <input type="button" value="<" onclick="poprzAsus()">
+         <img src="asus1.jpg" id="asus1">
+         <input type="button" value=">" onclick="nastAsus()">
+            <span class="sp1">Płyta główna Asus ROG STRIX B550-A GAMING</span>
+            <span class="sp2">Płyta główna ROG Strix B550-A Gaming formatu ATX wkracza na scenę z AMD B550 Ryzen AM4, oferując najnowsze funkcje, takie jak obsługa pamięci 
+                DDR4 i PCIe 4.0, która pozwoli Ci zasilać najnowsze karty graficzne, a także zapewni dodatkową przepustowość dla najszybszych dysków NVMe. 
+                Nowa generacja pamięci DDR4 zapewnia najlepszą szybkość odczytów i redukcję opóźnień. 
+                Chipset obsługujący overclocking wyposażony został w dwa gniazda M.2, USB 3.2 Gen 2 Typ C oraz obsługę wyjść HDMI 2.1i DisplayPort 1.2., 
+                dzięki temu będziesz w stanie zbudować dobrze wyważony system dla gracza. </span> 
+            <span class="sp3">522.00zł</span>
+            <input type="checkbox" id="asus" name="asus" onclick="odsylacz()"></div>
+        <div class="DDR5 AM5">
+            <input type="button" value="<" onclick="poprzMsi()">
+            <img src="msi1.jpg" id="msi1">
+            <input type="button" value=">" onclick="nastMsi()">
+            <span class="sp1">Płyta główna MSI B650 GAMING PLUS WIFI</span>
+            <span class="sp2">MSI B650 GAMING PLUS WIFI oferuje bardzo dobrą jakość w rozsądnej cenie. Na start wyróżnia się wbudowanym WiFi 6. 
+                Obsługuje pamięć DDR5 o wysokich taktowaniach, co przekłada się na świetną wydajność w 
+                grach i pracy. Płyta ma solidne chłodzenie sekcji zasilania. BIOS jest przejrzysty i prosty w obsłudze — idealny zarówno dla początkujących, 
+                jak i zaawansowanych użytkowników. Dodatkowym plusem jest Flash BIOS Button, 
+                który pozwala zaktualizować BIOS bez procesora. Do tego dochodzą dwa szybkie sloty M.2 PCIe 4.0 z radiatorami, nowoczesne złącza (w tym USB-C, HDMI, 
+                DisplayPort i LAN 2.5G) oraz czysty, elegancki wygląd bez przesadnego RGB. Platforma AM5.</span> 
+            <span class="sp3">614.00zł</span>
+            <input type="checkbox" id="msi" name="msi" onclick="odsylacz()"></div>
+        <div class="DDR5 AM5"><input type="button" value="<" onclick="poprzGiga()">
+            <img src="giga1.jpg" id="giga1">
+            <input type="button" value=">" onclick="nastGiga()">
+            <span class="sp1">Płyta główna Gigabyte B650 EAGLE AX</span>
+            <span class="sp2">Płyty główne GIGABYTE Ultra Durable™ zbudowane z optymalnych podzespołów zapewniają doskonałą wydajność i ponadczasową platformę. 
+                Najlepszy projekt VRM, jaki kiedykolwiek zbudowano, z komponentów najwyższej jakości. Obsługuj najnowsze procesory i zapewniaj zwiększoną 
+                wydajność systemu oraz najwyższą skalowalność sprzętu. DDR5. Panel tylny: 
+            DisplayPort x1,
+            HDMI x1,
+            PS/2 (klawiatura/mysz) x1,
+            RJ-45 x1,
+            USB 2.0 x6,
+            USB 3.2 Gen 2 (3.1 Gen 2) x2,
+            USB-C 3.2 Gen 1 (3.0/3.1 Gen 1) x1,
+            Złącze anteny WiFi x2,
+            Złącze audio x3</span> 
+            <span class="sp3">579.00zł</span>
+            <input type="checkbox" id="giga" name="giga" onclick="odsylacz()"></div>
+        <div class="DDR5 AM5"><input type="button" value="<" onclick="poprzAs()">
+            <img src="as1.jpg" id="as1">
+            <input type="button" value=">" onclick="nastAs()">
+            <span class="sp1">Płyta główna ASRock B850M-X WiFi R2.0</span>
+            <span class="sp2">Płyta główna ASRock X-Series zapewnia rozwiązanie o wysokiej wartości, równoważąc wydajność i wszechstronność w kompaktowym formacie. 
+                Jest wysoce zdolna do obsługi szerokiego zakresu zadań, od profesjonalnej produktywności po codzienne użytkowanie, osiągając doskonałą 
+                równowagę między przystępnością cenową, niezawodnością i wydajnością. DDR5. Panel tylny:
+                DisplayPort x1,
+                HDMI x1,
+                Przycisk BIOS Flashback x1,
+                RJ-45 x1,
+                USB 2.0 x2,
+                USB 3.2 Gen 1 (3.0/3.1 Gen 1) x3,
+                USB-C 3.2 Gen 1 (3.0/3.1 Gen 1) x1,
+                Złącze anteny WiFi x2,
+                Złącze audio x3
+                </span> 
+            <span class="sp3">509.00zł</span>
+            <input type="checkbox" id="as" name="as" onclick="odsylacz()"></div>
+        <div class="DDR5 AM5"><input type="button" value="<" onclick="poprzTuf()">
+            <img src="tuf1.jpg" id="tuf1">
+            <input type="button" value=">" onclick="nastTuf()">
+            <span class="sp1">Płyta główna Asus TUF GAMING B650E-E WIFI</span>
+            <span class="sp2">ASUS TUF GAMING B650-E WIFI wykorzystuje wszystkie istotne elementy najnowszego gniazda AM5 dla procesorów AMD Ryzen™ do komputerów 
+                stacjonarnych i łączy je z funkcjami gotowymi do grania i sprawdzoną trwałością. Oferuje solidną i stabilną wydajność 
+                podczas maratonów gier. Płyty główne TUF GAMING przechodzą również rygorystyczne testy wytrzymałościowe, aby mieć pewność, że poradzą sobie z 
+                warunkami, w których inne mogą zawieść. Pod względem estetycznym model ten łączy w sobie wytrzymałe elementy w kolorze złamanej czerni i 
+                geometryczne elementy, które odzwierciedlają niezawodność i stabilność, które definiują serię TUF GAMING. DDR5.</span> 
+            <span class="sp3">729.00zł</span>
+            <input type="checkbox" id="tuf" name="tuf" onclick="odsylacz()"></div>
+        </section>
+    <section id="kasa">
+        <h2>Kasa</h2>
+        <p>Wybrałeś: </p>
+        <div id="wybrane"><br></div>
+        <form>
+            <p>Kod rabatowy: <input type="text" id="rabat"></p>
+            <p><span title="Na jedną płytę">Aktualizacja BIOSu (150zł)*: </span><input type="checkbox" id="bios" name="bios"></p>
+            <p><span title="Na jedną płytę">Przedłużona gwarancja (80zł/rok)*: </span>
+                <select id="gwarancja">
+                    <option value="0">brak</option>
+                    <option value="1">1 rok</option>
+                    <option value="2">2 lata</option>
+                    <option value="3">3 lata</option>
+                </select></p>
+            <p>Ilość rat: <input type="number" id="raty" min="0" value="0" max="24"></p>
+            <input type="button" value="oblicz cenę" id="kup" onclick="oblicz()">
+        </form>
+        <div id="wynik">-------</div>
+        <input type="button" value="kup" onclick="oblicz();kupiles()">
+    </section>
+    <hr>
+        <script>
+        //framework do ruszających się kropek
+        var kropki = [".", "..", "..."];
+        var i = 0;
+        var msekundy = 300;
+        function krop() {
+        document.getElementById("kropka").textContent = kropki[i];
+        i = (i + 1) % kropki.length; 
+        setTimeout(krop, msekundy);
+        }
+        krop();
+        //koniec frameworku
+         var czas=50
+          var litera=1;
+         function ruch(){
+        window.setTimeout(ruch, czas)
+        var nap=document.napis.text.value
+        document.napis.text.value=nap.substring(litera)+nap.substring(0,litera)
+         }
+         ruch();
+        </script>  
+    <footer id="stopa">
+        <p>&copy;Patryk Morawczyński 2025</p><p>Projektowanie aplikacji internetowych</p>
+    </footer>
+</body>
+</html>
